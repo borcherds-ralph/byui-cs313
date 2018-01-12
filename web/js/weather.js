@@ -9,7 +9,7 @@ function currentWeather(state, city) {
      */
     $(function($) {
         $.ajax({
-            url: "http://api.wunderground.com/api/d704f31a50bce41f/conditions/q/" + state + "/" + city + ".json",
+            url: "https://api.wunderground.com/api/d704f31a50bce41f/conditions/q/" + state + "/" + city + ".json",
             dataType: "jsonp",
             success: function(parsed_json) {
                 var parsedjson = parsed_json['current_observation'];
@@ -43,7 +43,7 @@ function forecastWeather(state, city) {
      */
     $(function($) {
         $.ajax({
-            url: "http://api.wunderground.com/api/d704f31a50bce41f/forecast10day/q/" + state + "/" + city + ".json",
+            url: "https://api.wunderground.com/api/d704f31a50bce41f/forecast10day/q/" + state + "/" + city + ".json",
             dataType: "jsonp",
             success: function(parsed_json) {
                 var v1 = parsed_json['forecast']['simpleforecast']['forecastday'];
