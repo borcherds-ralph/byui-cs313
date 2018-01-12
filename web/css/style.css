@@ -12,7 +12,8 @@ html {
     box-sizing: inherit;
 }
 
-.nodisplay {
+.nodisplay,
+.hiddenitems {
     display: none;
 }
 

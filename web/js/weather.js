@@ -9,7 +9,7 @@ function currentWeather(state, city) {
      */
     $(function($) {
         $.ajax({
-            url: "https://api.wunderground.com/api/d704f31a50bce41f/conditions/q/" + state + "/" + city + ".json",
+            url: "//api.wunderground.com/api/d704f31a50bce41f/conditions/q/" + state + "/" + city + ".json",
             dataType: "jsonp",
             success: function(parsed_json) {
                 var parsedjson = parsed_json['current_observation'];
