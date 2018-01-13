@@ -6,16 +6,16 @@
         <?php include('common/head.php'); ?>
     </head>
  
-  <body>
-    <?php include('common/header.php'); ?>
-    <main class="home">
-    <h1>These are the Assignments for the CS-313 class</h1>
+<body>
+    <section class="content">
+        <?php include('common/header.php'); ?>
+        <main class="home">
+            <h1>These are the Assignments for the CS-313 class</h1>
+            <h3>Links are coming soon</h3>
 
 
-    </main>
-    <?php include('common/footer.php'); ?>
-
-    </body>
-
-
+        </main>
+        <?php include('common/footer.php'); ?>
+    </section>
+</body>
 </html>

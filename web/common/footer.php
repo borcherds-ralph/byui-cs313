@@ -10,26 +10,6 @@
 </footer>
 
 
-<!--/******************************************************************
-**               Weather Forecast scripts - Begin
-*******************************************************************/-->
-<?php 
-$state = 'CA'; 
-$city = 'Palm Springs';
-?>
-<script src="js/weather.js"></script>
-<script>
-        var state = "<?php echo $state; ?>";
-        if (state.length == 2) {
-            var state = "<?php echo $state; ?>";
-            var city = "<?php echo $city; ?>";
-            currentWeather(state, city);
-            forecastWeather(state, city);
-        }
-    </script>
-<!--/******************************************************************
-**               Weather Forecast scripts - End
-*******************************************************************/-->
 
 <script>
       var urlString, urlArray, pageHREF, menu, i, currentURL;
