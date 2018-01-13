@@ -7,6 +7,9 @@ $str = $parts['scheme'].'://'.$parts['host'].$parts['path'];
 ?>
 
 <header>
+    <div class="logo">
+        <h1>Ralph Borcherds CS-313 Website</h1>
+    </div>
     <nav class="navigation">
         <ul>
             <li <?php if($str == "://index.php" || $str == "://") { echo "class='active'"; } ?> ><a href="index.php" title="Home Page">Home</a></li>
