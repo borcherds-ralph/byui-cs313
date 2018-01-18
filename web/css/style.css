@@ -53,6 +53,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #fff;
 }
 
 header {
@@ -814,6 +815,8 @@ input:checked~label {
         display: flex;
         flex-direction: column;
         width: 100vw;
+        min-height: 100vh;
+        background-color: #fff;
     }
     header {
         display: flex;
@@ -1309,6 +1312,7 @@ input:checked~label {
         padding: 0 10px 0 10px;
         width: 100%;
         background-color: #fff;
+        min-height: 100vh;
     }
     header {
         display: flex;

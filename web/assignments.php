@@ -12,8 +12,6 @@
         <main class="home">
             <h1>These are the Assignments for the CS-313 class</h1>
             <h3>Links are coming soon</h3>
-
-
         </main>
         <?php include('common/footer.php'); ?>
     </section>

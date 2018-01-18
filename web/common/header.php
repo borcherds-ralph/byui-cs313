@@ -2,8 +2,15 @@
 $url = basename($_SERVER['REQUEST_URI']);
 
 $parts = parse_url($url);
+$scheme = isset($parts['scheme']);
+$host = isset($parts['host']);
+if($scheme == NULL | $host == NULL) {
+    $str = '://'.$parts['path'];
+} else {
+    $str = $parts['scheme'].'://'.$parts['host'].$parts['path'];
+}
+// $str = $parts['path'];
 
-$str = $parts['scheme'].'://'.$parts['host'].$parts['path'];
 ?>
 
 <header>

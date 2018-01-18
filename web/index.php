@@ -3,7 +3,8 @@
     <head>
         <title>Home page for CS-313</title>
         <meta name="description" content="This is the homepage for my BYU-I CS-313 Class">
-        <?php include('common/head.php'); ?>
+        
+        <?php include_once('common/head.php'); ?>
     </head>
  
   <body>
@@ -11,14 +12,15 @@
         <?php include('common/header.php'); ?>
         <main class="home">
             <h1>Welcome to my CS-313 Homepage</h1>
-            <p>Some of the things I enjoy doing is riding horses, ham radio and spending time with the family.</p>
+            <p>Some of the things I enjoy doing is riding horses, ham radio and spending time with the family. The image below was taken about a year ago when we spent 3 days on horseback supporting a youth pioneer trek. That was not with out stake, but a stake next to us. They needed a nurse for the trek and asked my wife to be that nurse. This was done during the week between the winter and spring semesters in 2017.</p>
+            <p>My horse is a cross between a quarter horse and a Belgium draft horse. He is 18 hands tall and weighs about 16oo lbs. My wife is on a standard quarter horse that only weighs about 1000 lbs.</p>
+            <p>I am the Vice-President of the Desert RATS club in Palm Springs. This is a ham radio club. I am also the ARES Emergency coordinator for the entire valley where we live. I have about 45 ham radio operators that report to me and will be actived during a disaster.</p>
             <figure>
                 <img src="images/day-1-0306.jpg" width="600">
                 <figcaption>On horseback during a Pioneer Trek for 3 days</figcaption>
             </figure>
 
-            <p>Since I live in sunny Southern California I thought I would share the current temp.</p>
-            <p>Sorry if these temps make you jealous during the winter months.</p>
+            <p>Since I live in sunny Southern California I thought I would share the current temp. Sorry if these temps make you jealous during the winter months. Someone has to live where it is warm during the winter.</p>
             <section id="forecast">
                 <h2 id="hiddenitems">Weather forecast table.</h2>
                 <div class="forecast">
