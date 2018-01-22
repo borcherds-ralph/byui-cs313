@@ -23,7 +23,7 @@ function currentWeather(state, city) {
                     $(".flex-order9").removeClass("hiddenitems");
                     document.getElementById('windchillnow').innerHTML = windchill + "&deg; F";
                 }
-                document.getElementById('cityname').innerHTML = "Cuurent temp for " + location + " is " + temp_f + "&deg; F";
+                document.getElementById('cityname').innerHTML = "Current temp for " + location + " is " + temp_f + "&deg; F";
                 document.getElementById('summary2').innerHTML = parsedjson['weather'];
             }
         });
