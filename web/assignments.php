@@ -12,6 +12,13 @@
         <main class="home">
             <h1>These are the Assignments for the CS-313 class</h1>
             <h3>Links are coming soon</h3>
+            <ul>
+                <li>Week 2: Prove</li>
+                <li>Week 3: <a href="week3/week3.php" title="Team Teaching activity">Teach Team</a></li>
+                <li>Week 3: <a href="week3/shoppingcart.php" title="Shopping Cart Assignment">Prove Shopping Cart</a></li>
+                <li>Week 4: </li>
+                <li>Week 5: </li>
+            </ul>
         </main>
         <?php include('common/footer.php'); ?>
     </section>
