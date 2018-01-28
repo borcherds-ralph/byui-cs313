@@ -15,7 +15,7 @@
             <ul>
                 <li>Week 2: Prove</li>
                 <li>Week 3: <a href="week3/week3.php" title="Team Teaching activity">Teach Team</a></li>
-                <li>Week 3: <a href="week3/shoppingcart.php" title="Shopping Cart Assignment">Prove Shopping Cart</a></li>
+                <li>Week 3: <a href="week3/shopping-cart/" title="Shopping Cart Assignment">Simple Shopping Cart</a></li>
                 <li>Week 4: </li>
                 <li>Week 5: </li>
             </ul>

@@ -106,15 +106,3 @@ input[type="radio"]~label {
     padding-left: 0.4em;
 }
 
-
-/* label state styles */
-
-input:focus~label,
-textarea:focus~label,
-select:focus~label {
-    color: #933;
-}
-
-input:checked~label {
-    font-weight: bold;
-}
