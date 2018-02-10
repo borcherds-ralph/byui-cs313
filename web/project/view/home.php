@@ -12,7 +12,8 @@
         <?php include 'common/header.php'; ?>
     </section>
     <main>
-
+        <h1>List of Doctors</h1>
+        <?php echo $doctors; ?>
     </main>
     <footer>
         <?php include 'common/footer.php'; ?>

@@ -2,12 +2,12 @@
 
 function getAllrecords(){
     $db = get_db();
-    $sql = 'SELECT specialty_name FROM specialties ORDER BY specialty_name';
+    $sql = "SELECT dc.doctor_name, dc.doctor_address1, dc.doctor_address2, dc.doctor_address3, dc.doctor_city, dc.doctor_state, dc.doctor_zip FROM doctors AS dc RIGHT JOIN doc_specialties AS ds ON dc.id = ds.doctor_id JOIN specialties AS sp ON sp.specialty_id = ds.specialty_id ORDER BY doctor_name";
     $stmt = $db->prepare($sql);
     $stmt->execute();
-    $categories = $stmt->fetchAll();
+    $doctors = $stmt->fetchAll();
     $stmt->closeCursor();
-    return $categories;
+    return $doctors;
 }
 
 function getCategories() {
