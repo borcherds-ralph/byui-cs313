@@ -31,4 +31,4 @@ function get_db() {
 	}
 	return $db;
 }
-get_db();
+// get_db();
