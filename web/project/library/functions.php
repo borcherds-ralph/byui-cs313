@@ -1,7 +1,7 @@
 <?php
 
-function getDoctors($count) {
-    $docs = getAllrecords();
+function getDoctors($docs) {
+    
     $docDisplay = '';
 
     foreach ($docs as $key => $doctor) {

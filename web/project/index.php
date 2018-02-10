@@ -33,7 +33,8 @@ switch ($action) {
     exit;
 
     default:
-        $doctors = getDoctors('0');
+        $docs = getAllrecords();
+        $doctors = getDoctors($docs);
         include 'view/home.php';
     exit;
 
