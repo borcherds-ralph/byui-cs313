@@ -11,6 +11,7 @@ body {
     background-color: #efefef;
     margin: auto;
     min-height: 100vh;
+    padding: 10px;
 }
 
 h1,
@@ -49,11 +50,76 @@ h6 {
     font-style: italic;
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+}
+
+.logoarea {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.logo {
+    width: calc(50%);
+}
+
+.logo img {
+    width: 100px;
+}
+
+.logoarea .right {
+    display: flex;
+    flex-direction: column;
+}
+
+.account img {
+    width: 30px;
+    padding-right: 7px;
+}
+
+.hamburger {
+    display: none;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+}
+
+nav ul {
+    display: flex;
+}
+
+.navigation {
+    display: inline-flex;
+    color: #1d1d1d;
+    margin: 3px 0 0 0;
+    padding: 0 5px 0 5px;
+    line-height: 2em;
+    text-align: center;
+}
+
+.navigation li {
+    /* width: 100vw; */
+    list-style: none;
+    font-size: 1em;
+    padding: 0 10px;
+}
+
+.navigation li:hover,
+.navigation li a:hover {
+    background-color: #808080;
+    color: #000;
+}
+
 main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 10px;
 }
 
 main h1 {

@@ -6,7 +6,7 @@ include_once 'config/database.php';
 include_once 'library/functions.php';
 include_once 'model/model_lookup.php';
 
-
+$basepath = baseurl();
 
 // Get the action to perform.
 $action = filter_input(INPUT_POST, 'action');
@@ -22,21 +22,34 @@ if (isset($_SESSION['loggedin'])) {
 
 switch ($action) {
 
-
     case 'anything':
+    break;
+
+    case 'specialty':
+        $spec = getSpecialties();
+        $specialties = makeSpecialties($spec);
+        include 'view/specialty.php';
+    break;
+
+    case 'city':
+        include 'view/city.php';
     break;
 
     case 'logout':
         session_destroy();
         setcookie('firstname', $_SESSION['clientData']['clientFirstname'], time() - 3600, $basepath);
         header('location:' . $basepath);
-    exit;
+    break;
+
+    case 'login':
+        include 'view/login.php';
+        break;
 
     default:
         $docs = getAllrecords();
         $doctors = getDoctors($docs);
         include 'view/home.php';
-    exit;
+    break;
 
 }
 

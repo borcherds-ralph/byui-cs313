@@ -13,9 +13,9 @@ function getAllrecords(){
     return $doctors;
 }
 
-function getCategories() {
+function getSpecialties() {
     $db = get_db();
-    $sql = 'SELECT specialty_name FROM specialties ORDER BY specialty_name';
+    $sql = 'SELECT specialty_name FROM doclookup.specialties ORDER BY specialty_name';
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $categories = $stmt->fetchAll();

@@ -1,4 +1,13 @@
 <?php
+function baseurl() {
+    if ($_SERVER['HTTP_HOST'] == 'localhost') // or any other host
+    {
+        $basepath = '/cs313/web/project/';
+   } else {
+       $basepath = '/project';
+   }
+   return $basepath;
+}
 
 function getDoctors($docs) {
     
@@ -19,3 +28,15 @@ function getDoctors($docs) {
 
     return $docDisplay;
 }
+
+function makeSpecialties($specialties){
+    // build category list for drop down list.
+    // This must come after the navigation so that the $specialties variable has data
+    $catList = "<datalist id='specialties'>";
+    foreach ($specialties as $category) {
+        $catList .= "<option value='" . $category['specialty_name'] . "'></option>";
+    }
+    $catList .= "</datalist>";
+    return $catList;
+}
+
