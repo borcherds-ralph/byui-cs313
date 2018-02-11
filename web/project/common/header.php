@@ -1,4 +1,5 @@
 <header>
+<input type="hidden" id="baseurl" name="baseurl" value="<?php echo $basepath; ?>">
     <div class="logoarea">
             
         <div class="logo"><a href="<?php echo $basepath; ?>"><img src="<?php echo $basepath; ?>/images/mrb-logo-2.png" id="logo" alt="Company Logo"></a></div>

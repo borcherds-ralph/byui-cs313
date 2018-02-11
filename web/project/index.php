@@ -14,6 +14,7 @@ if ($action == NULL){
  $action = filter_input(INPUT_GET, 'action');
 }
 
+
 // Check if the firstname cookie exists, get its value
 if (isset($_SESSION['loggedin'])) {
     $clientData = getClient($_SESSION['clientData']['clientEmail']);

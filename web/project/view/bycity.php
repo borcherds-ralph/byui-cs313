@@ -14,10 +14,12 @@
     </section>
     <main>
         <h1>Cities</h1>
-        
-        <label for="city">Select a City: </label>
-        <input class="inputinvalid" id="city" name="city" autocomplete="off" list="cities" required tabindex="1" title="Select the city." >
-         <?php echo $cityList; ?> 
+        <section>
+        <label for="city1">Select a City: </label>
+        <input class="inputinvalid" id="city1" name="city1" autocomplete="off" list="cities" required tabindex="1" title="Select the city." onChange="javascript:updateDocByCity();">
+        <?php echo $cityList; ?> 
+        </section>
+        <section id="docbycity"></section>
     </main>
     <footer>
         <?php include 'common/footer.php'; ?>

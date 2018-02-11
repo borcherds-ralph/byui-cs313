@@ -79,3 +79,39 @@ function footerDate() {
     // write output the the currentdate ID in the HTML code
     document.getElementById("currentdate").innerHTML = day + ", " + currdate + " " + month + " " + year;
 }
+
+var ajax1 = getHTTPObject();
+
+function getHTTPObject() {
+    var xmlhttp;
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+    }
+    return xmlhttp;
+}
+
+function updateDocByCity() {
+
+    if (ajax1) {
+        var city = document.getElementById("city1").value;
+        var base_url = document.getElementById('baseurl').value;
+        var url = "//" + window.location.host + base_url + "json/getbycity.php?action=" + city;
+        ajax1.onreadystatechange =
+            function() {
+
+                // This next line checks to make sure that the file has finished being read and that it was read correctly.
+                if (ajax1.readyState == 4 && ajax1.status == 200) {
+                    // document.getElementById('serverState').innerHTML += "Ready State: " + ajax1.readyState + "  Status: " + ajax1.status + " start<BR>";
+                    // var data = JSON.parse(ajax1.responseText);
+                    document.getElementById('docbycity').innerHTML = ajax1.responseText;
+                    document.getElementById('city1').value = "";
+                } else {
+                    // document.getElementById('serverState').innerHTML += "Ready State: " + ajax1.readyState + "  Status: " + ajax1.status + "<BR>";
+                }
+            }
+        ajax1.open("GET", url, true);
+        ajax1.send();
+    }
+
+
+}
