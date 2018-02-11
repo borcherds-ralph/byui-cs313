@@ -5,12 +5,7 @@ function get_db() {
 	try {
 		// default Heroku Postgres configuration URL
 		$dbUrl = getenv('DATABASE_URL');
-		// echo $dbUrl;
-		// if (!isset($dbUrl) || empty($dbUrl)) {
-			
-		// 	$dbUrl = "postgres://ralphb:m1dk1h8n1@localhost:5432/mydb";
-			
-		// }
+		
 		// Get the various parts of the DB Connection from the URL
 		$dbopts = parse_url($dbUrl);
 		$dbHost = $dbopts["host"];
@@ -18,7 +13,7 @@ function get_db() {
 		$dbUser = $dbopts["user"];
 		$dbPassword = $dbopts["pass"];
 		$dbName = ltrim($dbopts["path"],'/');
-		// print_r($dbopts);
+		
 		// Create the PDO connection
 		$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 		// this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
@@ -31,4 +26,3 @@ function get_db() {
 	}
 	return $db;
 }
-// get_db();

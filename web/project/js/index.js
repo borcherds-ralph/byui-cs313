@@ -115,3 +115,30 @@ function updateDocByCity() {
 
 
 }
+
+function updateDocBySpecialty() {
+
+    if (ajax1) {
+        var specialty = document.getElementById("category").value;
+        var base_url = document.getElementById('baseurl').value;
+        var url = "//" + window.location.host + base_url + "json/getbyspecialty.php?action=" + specialty;
+        ajax1.onreadystatechange =
+            function() {
+
+                // This next line checks to make sure that the file has finished being read and that it was read correctly.
+                if (ajax1.readyState == 4 && ajax1.status == 200) {
+                    // document.getElementById('serverState').innerHTML += "Ready State: " + ajax1.readyState + "  Status: " + ajax1.status + " start<BR>";
+                    // var data = JSON.parse(ajax1.responseText);
+                    document.getElementById('specialty').innerHTML = "<h1>" + specialty + "</h1>";
+                    document.getElementById('docbyspecialty').innerHTML = ajax1.responseText;
+                    document.getElementById('category').value = "";
+                } else {
+                    // document.getElementById('serverState').innerHTML += "Ready State: " + ajax1.readyState + "  Status: " + ajax1.status + "<BR>";
+                }
+            }
+        ajax1.open("GET", url, true);
+        ajax1.send();
+    }
+
+
+}
