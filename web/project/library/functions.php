@@ -40,3 +40,12 @@ function makeSpecialties($specialties){
     return $catList;
 }
 
+function makeCities($cities){
+    $catList = "<datalist id='cities'>";
+    foreach ($cities as $category) {
+        $catList .= "<option value='" . $category['doccity'] . "'></option>";
+    }
+    $catList .= "</datalist>";
+    return $catList;
+}
+

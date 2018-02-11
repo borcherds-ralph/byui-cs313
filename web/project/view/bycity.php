@@ -13,8 +13,11 @@
         <?php include_once 'common/header.php'; ?>
     </section>
     <main>
-        <h1>List of Doctors</h1>
-        <?php echo $doctors; ?>
+        <h1>Cities</h1>
+        
+        <label for="city">Select a City: </label>
+        <input class="inputinvalid" id="city" name="city" autocomplete="off" list="cities" required tabindex="1" title="Select the city." >
+         <?php echo $cityList; ?> 
     </main>
     <footer>
         <?php include 'common/footer.php'; ?>

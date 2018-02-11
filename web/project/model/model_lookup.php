@@ -33,3 +33,13 @@ function getAllDocsByCategory($category) {
     $stmt->closeCursor();
     return $doctors;
 }
+
+function getCities() {
+    $db = get_db();
+    $sql = "SELECT doccity FROM doclookup.addresses GROUP BY doccity ORDER BY doccity ASC";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $cities = $stmt->fetchAll();
+    $stmt->closeCursor();
+    return $cities;
+}

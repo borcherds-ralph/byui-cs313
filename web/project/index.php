@@ -32,7 +32,9 @@ switch ($action) {
     break;
 
     case 'city':
-        include 'view/city.php';
+        $cities = getCities();
+        $cityList = makeCities($cities);
+        include 'view/bycity.php';
     break;
 
     case 'logout':
