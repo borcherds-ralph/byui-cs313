@@ -95,7 +95,7 @@ function updateDocByCity() {
     if (ajax1) {
         var city = document.getElementById("city1").value;
         var base_url = document.getElementById('baseurl').value;
-        var url = "//" + window.location.host + base_url + "json/getbycity.php?action=" + city;
+        var url = "//" + window.location.host + base_url + "/json/getbycity.php?action=" + city;
         ajax1.onreadystatechange =
             function() {
 
@@ -121,7 +121,7 @@ function updateDocBySpecialty() {
     if (ajax1) {
         var specialty = document.getElementById("category").value;
         var base_url = document.getElementById('baseurl').value;
-        var url = "//" + window.location.host + base_url + "json/getbyspecialty.php?action=" + specialty;
+        var url = "//" + window.location.host + base_url + "/json/getbyspecialty.php?action=" + specialty;
         ajax1.onreadystatechange =
             function() {
 
