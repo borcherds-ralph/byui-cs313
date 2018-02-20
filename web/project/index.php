@@ -21,7 +21,8 @@ if ($action == NULL){
 if (isset($_SESSION['loggedin'])) {
     $clientData = getClient($_SESSION['clientData']['email']);
     array_pop($clientData);
-}
+} 
+
 
 switch ($action) {
 
@@ -141,7 +142,9 @@ switch ($action) {
     exit;
 
     case 'doc-mgt':
-
+        $doctors = getAllrecords();
+        $docMgt = createDocMgt($doctors);
+        include 'view/doc-mgt.php';
     exit;
 
     

@@ -134,6 +134,39 @@ main h1 {
     padding: 15px;
 }
 
+.docmgt,
+.doclist {
+    width: 100vw;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.docmgt,
+.doclist,
+.docName,
+.docCityState,
+.modify,
+.delete {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.docName {
+    width: calc(20%);
+}
+
+.docCityState {
+    width: calc(25%);
+}
+
+.modify,
+.delete {
+    width: calc(5%);
+}
+
 footer {
     padding: 10px;
 }

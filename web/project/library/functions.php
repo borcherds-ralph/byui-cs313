@@ -84,3 +84,28 @@ function checkPassword($clientPassword){
     $pattern = '/^(?=.*[[:digit:]])(?=.*[[:punct:]])[[:print:]]{8,}$/';
     return preg_match($pattern, $clientPassword);
 }
+
+
+function createDocMgt($docs) {
+    $basepath = baseurl();
+    $docDisplay = "<section class='docmgt'>\n";
+    $docDisplay .= "<div class='docName bold'>Last Name, First Name</div>\n";
+    $docDisplay .= "<div class='docCityState bold'>City, State Zip</div>\n";
+    $docDisplay .= "<div class='modify bold'>Modify</div>\n";
+    $docDisplay .= "<div class='delete bold'>Delete</div>\n";
+
+    foreach ($docs as $key => $doctor) {
+        if($key & 1) {
+            $rowoddeven = 'odd';
+        } else {$rowoddeven = 'even';} 
+        $docDisplay .= "<article class='$rowoddeven doclist'>\n ";
+        $docDisplay .= "<div class='docName'>$doctor[doctorlastname], $doctor[doctorfirstname]</div>\n";
+        $docDisplay .= "<div class='docCityState'>$doctor[doccity], $doctor[docstate] $doctor[doczip]</div>\n";
+        $docDisplay .= "<div class='modify'><a href='$basepath/?action=modifyDoc&id=$doctor[doctor_id]'>Modify</a></div>\n";
+        $docDisplay .= "<div class='delete'><a href='$basepath/?action=DeleteDoc&id=$doctor[doctor_id]'>Delete</a></div>\n";
+        $docDisplay .= "</article>\n";
+    }
+    
+    $docDisplay .= "</section>\n";
+    return $docDisplay;
+}

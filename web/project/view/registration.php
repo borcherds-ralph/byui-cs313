@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registration Form</title>
+    <?php include 'common/head.php'; ?>
 </head>
 <body>
-<h1>User Registration</h1>
+    <section class="header">
+        <?php include_once 'common/header.php'; ?>
+    </section>
+    <main>
+        <h1>User Registration</h1>
             <?php
                 if (isset($message)) {
                 echo $message;
