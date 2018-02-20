@@ -13,7 +13,9 @@
     
     <main>
         <h1>List of Doctors</h1>
+        <section class="doctorshome">
         <?php echo $doctors; ?>
+        </section>
     </main>
     
         <?php include 'common/footer.php'; ?>

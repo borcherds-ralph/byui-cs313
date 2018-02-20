@@ -126,6 +126,12 @@ main h1 {
     width: 100%;
 }
 
+.doctorshome {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .doclist {
     display: flex;
     flex-direction: column;
@@ -135,7 +141,7 @@ main h1 {
 }
 
 .docmgt,
-.doclist {
+.docmgt .doclist {
     width: 100vw;
 }
 
@@ -143,8 +149,8 @@ main h1 {
     font-weight: 700;
 }
 
+.docmgt .doclist,
 .docmgt,
-.doclist,
 .docName,
 .docCityState,
 .modify,
