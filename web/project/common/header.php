@@ -13,7 +13,7 @@
                     if (isset($_SESSION['loggedin'])) {
                         echo "<div id='loggedin'>";
                         echo "<div id='logout'><a href='$basepath?action=Logout'>Logout</a></div>";
-                        echo "<div id='update'><a href='$basepath?action=user-mgt'>Update Account</a></div>";
+                        echo "<div id='update'><a href='$basepath?action=doc-mgt'>Manage Doctors</a></div>";
                         echo "</div>";
                     } else {
                         echo "<a href='$basepath?action=login' class='link'>

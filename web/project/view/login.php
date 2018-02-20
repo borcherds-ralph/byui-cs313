@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <?php include '../common/head.php'; ?>
+    <?php include 'common/head.php'; ?>
 
 </head>
 <body>
     <section class="header">
-        <?php include_once '../common/header.php'; ?>
+        <?php include_once 'common/header.php'; ?>
     </section>
     <main>
             <h1>User Login</h1>
