@@ -8,7 +8,6 @@ DROP TABLE IF EXISTS "public"."sessions";
 DROP TABLE IF EXISTS "public"."speakers";
 DROP TABLE IF EXISTS "public"."users";
 
-
 /*
 DROP SEQUENCE which is the auto increment number
 CREATE SEQUENCE for the auto increment number
@@ -26,10 +25,6 @@ CREATE TABLE "public"."users" (
 	"last_name" character varying(40) NOT NULL, 
 	"password" character varying(40) NOT NULL
 ) WITH (oids = false);
-
-
-
-
 
 /*
 DROP SEQUENCE which is the auto increment number
