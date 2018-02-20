@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <?php include 'common/head.php'; ?>
+    <?php include '../common/head.php'; ?>
 
 </head>
 <body>
     <section class="header">
-        <?php include_once 'common/header.php'; ?>
+        <?php include_once '../common/header.php'; ?>
     </section>
     <main>
             <h1>User Login</h1>
@@ -19,10 +19,10 @@
                 echo $message;
                 }
             ?>
-            <form action="<?php echo $basepath; ?>/accounts/?action=Login" method="post" id="loginform">
+            <form action="<?php echo $basepath; ?>/?action=Login" method="post" id="loginform">
                 <fieldset>
                     <div>
-                        <input class="requiredinvalid" id="email" name="clientEmail"
+                        <input class="requiredinvalid" id="email" name="email"
                         type="email" required placeholder="email@address.com" tabindex="1"
                         title="E-mail address must be a valid e-mail address format." readonly <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?>
                         onfocus="if (this.hasAttribute('readonly')) {
@@ -32,7 +32,7 @@
                         <label for="email">e-Mail Address</label>
                     </div>
                     <div>
-                        <input class="requiredinvalid" id="password" name="clientPassword"
+                        <input class="requiredinvalid" id="password" name="password"
                         type="password" required tabindex="2" title="Passwords are case sensitive. Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character." pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                         readonly onfocus="if (this.hasAttribute('readonly')) {
                             this.removeAttribute('readonly');
@@ -52,5 +52,11 @@
     <footer>
         <?php include 'common/footer.php'; ?>
     </footer>
+    <script>
+        function registration() {
+            var basepath = '<?php echo $basepath ?>';
+            location.href = basepath + '?action=registration';
+        }
+    </script>
 </body>
 </html>

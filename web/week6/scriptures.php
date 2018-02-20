@@ -2,7 +2,8 @@
 session_start();
 
     require_once 'database.php';
-    $db = get_db();
+    require_once 'scripture_model.php';
+    
 ?>
 
 <!DOCTYPE html>
@@ -14,14 +15,17 @@ session_start();
     <title>PGSQL Connect to DB</title>
 </head>
 <body>
-    <h1>Scripture Resources</h1>
+    <main>
 
-    <?php
-        $statement = $db->query('SELECT book, chapter, verse, content FROM scriptures.scriptures');
-        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-        {
-          echo '<p><b>' . $row['book'] . ' ' . $row['chapter'] .':' . $row['verse'] . ' </b>- ' . $row['content'] . '</p>';
-        }
-    ?>
+        <h1>Scripture Resources</h1>
+        <div id="options"><a href="$basepath/?action=newtopic">Add New Topic</a></div>
+        <?php
+            
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+            {
+            echo '<p><b>' . $row['book'] . ' ' . $row['chapter'] .':' . $row['verse'] . ' </b>- ' . $row['content'] . '</p>';
+            }
+        ?>
+    </main>
 </body>
 </html>

@@ -69,3 +69,18 @@ function getDoctorsByCity($docs) {
     $docDisplay .= "</section>";
     return $docDisplay;
 }
+
+// Check to make sure the user enter a valid e-mail address
+function checkEmail($clientEmail){
+    $valEmail = filter_var($clientEmail, FILTER_VALIDATE_EMAIL);
+    return $valEmail;
+}
+
+
+// Check the password for a minimum of 8 characters,
+// at least one 1 capital letter, at least 1 number and
+// at least 1 special character
+function checkPassword($clientPassword){
+    $pattern = '/^(?=.*[[:digit:]])(?=.*[[:punct:]])[[:print:]]{8,}$/';
+    return preg_match($pattern, $clientPassword);
+}
