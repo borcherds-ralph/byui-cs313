@@ -14,6 +14,8 @@
     </section>
     <main>
 <?php 
+    if(isset($message)) { echo "<h2>$message</h2>"; }
+
     echo $docMgt;
 
 ?>

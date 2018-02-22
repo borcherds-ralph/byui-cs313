@@ -152,17 +152,26 @@ switch ($action) {
         $addId = filter_input(INPUT_GET, 'add_id');
         $doctor = getDoctor($id, $addId);
         
-        include 'view/modifydoc.php';
+        include 'view/docedit.php';
     break;
 
     case 'ModDoc':
-        modDoctor($_POST['docid'],  $_POST['docfirstname'], $_POST['doclastname'], "");
-        modDocAddress($_POST['docid'], $_POST['addid'], $_POST['docaddress1'], $_POST['docaddress2'], $_POST['docaddress3'], $_POST['doccity'], $_POST['docstate'], $_POST['doczip']);
-        
+        $error1 = modDoctor($_POST['docid'],  $_POST['docfirstname'], $_POST['doclastname'], "");
+        if($error1 == '0') {
+            $message = "The Doctor Name was not updated";
+        }
+        $error2 = modDocAddress($_POST['docid'], $_POST['addid'], $_POST['docaddress1'], $_POST['docaddress2'], $_POST['docaddress3'], $_POST['doccity'], $_POST['docstate'], $_POST['doczip']);
+        if($error2 == '0') {
+            $message = "The Doctor Address was not updated";
+        }
         $doctors = getDocRecords();
         $docMgt = createDocMgt($doctors);
-
+        
        include 'view/doc-mgt.php';
+    break;
+
+    case 'DocAdd':
+        $return = addDoctor($_POST['docfirstname'], $_POST['doclastname'], $_POST['docEmail']);
     break;
 
     default:

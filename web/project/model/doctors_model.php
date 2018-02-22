@@ -1,48 +1,53 @@
 <?php
 
-function addDoctor($docFName, $docLName, $docEmail){
+function addDoctor($docFName, $docLName){
     $db = get_db();
-    $sql = 'INSERT INTO doclookup.doctors (firstname, lastname, email) VALUES (:firstname, :lastname, :email)';
+    $sql = 'INSERT INTO doclookup.doctors (firstname, lastname) VALUES (:firstname, :lastname)';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':firstname', $docFName, PDO::PARAM_STR);
     $stmt->bindValue(':lastname', $docLName, PDO::PARAM_STR);
-    $stmt->bindValue(':email', $docEmail, PDO::PARAM_STR);
+    $stmt->execute();
+    $lastId = $db->lastInsertId();
+    $rowsChanged = $stmt->rowCount();
+    $stmt->closeCursor();
+    return array($rowsChanged, $lastId);
+}
+
+function addDocAddress($docId, $docAddress1, $docAddress2, $docCity, $docState, $docZip){
+    $db = get_db();
+    $sql = 'INSERT INTO doclookup.addresses ( doctor_id, docaddress1, docaddress2, docaddress3, doccity, docstate, doczip) VALUES (:addr1, :addr2, :addr3, :city, :addst, :zip)';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':docid', $docId, PDO::PARAM_INT);
+    $stmt->bindValue(':addr1', $docFName, PDO::PARAM_STR);
+    $stmt->bindValue(':addr2', $docLName, PDO::PARAM_STR);
+    $stmt->bindValue(':addr3', $docLName, PDO::PARAM_STR);
+    $stmt->bindValue(':city', $docLName, PDO::PARAM_STR);
+    $stmt->bindValue(':addst', $docLName, PDO::PARAM_STR);
+    $stmt->bindValue(':zip', $docLName, PDO::PARAM_STR);
     $stmt->execute();
     $rowsChanged = $stmt->rowCount();
     $stmt->closeCursor();
     return $rowsChanged;
-}
-
-function addDocAddress($docAddress1, $docAddress2, $docCity, $docState, $docZip){
-
 }
 
 function addDocSpec($docid, $docSpecId){
-    
-}
-
-function editDoctor($docid) {
     $db = get_db();
-    $sql = 'DELETE doclookup.doctors SET firstname = :firstname, lastname = :lastname, email = :email WHERE clientId = :clientId';
+    $sql = 'INSERT INTO doclookup.doc_specialties (doctor_id, specialties_id) VALUES (:docid, :specid)';
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':firstname', $firstname, PDO::PARAM_STR);
-    $stmt->bindValue(':lastname', $lastname, PDO::PARAM_STR);
-    $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-    $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
+    $stmt->bindValue(':docid', $docid, PDO::PARAM_INT);
+    $stmt->bindValue(':specid', $docSpecId, PDO::PARAM_INT);
     $stmt->execute();
     $rowsChanged = $stmt->rowCount();
     $stmt->closeCursor();
     return $rowsChanged;
 }
 
-
 function deleteDoctor($docid){
     $db = get_db();
-    $sql = 'DELETE doclookup.doctors SET firstname = :firstname, lastname = :lastname, email = :email WHERE clientId = :clientId';
+    $sql = 'DELETE doclookup.doctors SET firstname = :firstname, lastname = :lastname WHERE clientId = :clientId';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':firstname', $firstname, PDO::PARAM_STR);
     $stmt->bindValue(':lastname', $lastname, PDO::PARAM_STR);
-    $stmt->bindValue(':email', $email, PDO::PARAM_STR);
     $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
     $stmt->execute();
     $rowsChanged = $stmt->rowCount();
@@ -52,11 +57,10 @@ function deleteDoctor($docid){
 
 function deleteDocAddress($docid){
     $db = get_db();
-    $sql = 'DELETE doclookup.doctors SET firstname = :firstname, lastname = :lastname, email = :email WHERE clientId = :clientId';
+    $sql = 'DELETE doclookup.doctors SET firstname = :firstname, lastname = :lastname WHERE clientId = :clientId';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':firstname', $firstname, PDO::PARAM_STR);
     $stmt->bindValue(':lastname', $lastname, PDO::PARAM_STR);
-    $stmt->bindValue(':email', $email, PDO::PARAM_STR);
     $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
     $stmt->execute();
     $rowsChanged = $stmt->rowCount();
@@ -66,11 +70,10 @@ function deleteDocAddress($docid){
 
 function deleteDocSpecialty($docid){
     $db = get_db();
-    $sql = 'DELETE doclookup.doctors SET firstname = :firstname, lastname = :lastname, email = :email WHERE clientId = :clientId';
+    $sql = 'DELETE doclookup.doctors SET firstname = :firstname, lastname = :lastname WHERE clientId = :clientId';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':firstname', $firstname, PDO::PARAM_STR);
     $stmt->bindValue(':lastname', $lastname, PDO::PARAM_STR);
-    $stmt->bindValue(':email', $email, PDO::PARAM_STR);
     $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
     $stmt->execute();
     $rowsChanged = $stmt->rowCount();
@@ -78,13 +81,12 @@ function deleteDocSpecialty($docid){
     return $rowsChanged;
 }
 
-function modDoctor($docid, $docFName, $docLName, $docEmail){
+function modDoctor($docid, $docFName, $docLName){
     $db = get_db();
     $sql = 'UPDATE doclookup.doctors SET doctorfirstname = :firstname, doctorlastname = :lastname WHERE doctor_id = :docid';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':firstname', $docFName, PDO::PARAM_STR);
     $stmt->bindValue(':lastname', $docLName, PDO::PARAM_STR);
-    // $stmt->bindValue(':email', $docEmail, PDO::PARAM_STR);
     $stmt->bindValue(':docid', $docid, PDO::PARAM_INT);
     $stmt->execute();
     $rowsChanged = $stmt->rowCount();
@@ -92,17 +94,17 @@ function modDoctor($docid, $docFName, $docLName, $docEmail){
     return $rowsChanged;
 }
 
-function modDocAddress($docId, $addId, $addLine1, $addLine2, $addline3, $addCity, $addState, $addZip){
+function modDocAddress($docId, $addId, $addLine1, $addLine2, $addLine3, $addCity, $addState, $addZip){
     $db = get_db();
-    $sql = 'UPDATE doclookup.addresses SET docaddress1 = :addr1, docaddress2 = :addr2, docaddress3 = :addr3, docdity = :city, docstate = :addst, doczip = :zip WHERE doctor_id = :docid AND address_id = :address_id';
+    $sql = 'UPDATE doclookup.addresses SET docaddress1 = :addr1, docaddress2 = :addr2, docaddress3 = :addr3, doccity = :city, docstate = :addst, doczip = :zip WHERE doctor_id = :docid AND address_id = :address_id';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':addr1', $addLine1, PDO::PARAM_STR);
     $stmt->bindValue(':addr2', $addLine2, PDO::PARAM_STR);
     $stmt->bindValue(':addr3', $addLine3, PDO::PARAM_STR);
     $stmt->bindValue(':city', $addCity, PDO::PARAM_STR);
     $stmt->bindValue(':addst', $addState, PDO::PARAM_STR);
-    $stmt->bindValue(':zip', $addZiip, PDO::PARAM_STR);
-    $stmt->bindValue(':docid', $docd, PDO::PARAM_INT);
+    $stmt->bindValue(':zip', $addZip, PDO::PARAM_STR);
+    $stmt->bindValue(':docid', $docId, PDO::PARAM_INT);
     $stmt->bindValue(':address_id', $addId, PDO::PARAM_INT);
     $stmt->execute();
     $rowsChanged = $stmt->rowCount();
