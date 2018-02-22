@@ -99,7 +99,7 @@ switch ($action) {
 
     case 'login':
         include 'view/login.php'; 
-        break;
+    break;
 
     case 'Login':
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
@@ -139,15 +139,32 @@ switch ($action) {
         $docs = getAllrecords();
         $doctors = getDoctors($docs);
         include 'view/home.php';
-    exit;
+    break;
 
     case 'doc-mgt':
-        $doctors = getAllrecords();
+        $doctors = getDocRecords();
         $docMgt = createDocMgt($doctors);
         include 'view/doc-mgt.php';
-    exit;
+    break;
 
-    
+    case 'modifyDoc':
+        $id = filter_input(INPUT_GET, 'id');
+        $addId = filter_input(INPUT_GET, 'add_id');
+        $doctor = getDoctor($id, $addId);
+        
+        include 'view/modifydoc.php';
+    break;
+
+    case 'ModDoc':
+        modDoctor($_POST['docid'],  $_POST['docfirstname'], $_POST['doclastname'], "");
+        modDocAddress($_POST['docid'], $_POST['addid'], $_POST['docaddress1'], $_POST['docaddress2'], $_POST['docaddress3'], $_POST['doccity'], $_POST['docstate'], $_POST['doczip']);
+        
+        $doctors = getDocRecords();
+        $docMgt = createDocMgt($doctors);
+
+       include 'view/doc-mgt.php';
+    break;
+
     default:
         $docs = getAllrecords();
         $doctors = getDoctors($docs);

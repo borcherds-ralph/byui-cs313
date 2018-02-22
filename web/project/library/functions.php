@@ -101,8 +101,8 @@ function createDocMgt($docs) {
         $docDisplay .= "<article class='$rowoddeven doclist'>\n ";
         $docDisplay .= "<div class='docName'>$doctor[doctorlastname], $doctor[doctorfirstname]</div>\n";
         $docDisplay .= "<div class='docCityState'>$doctor[doccity], $doctor[docstate] $doctor[doczip]</div>\n";
-        $docDisplay .= "<div class='modify'><a href='$basepath/?action=modifyDoc&id=$doctor[doctor_id]'>Modify</a></div>\n";
-        $docDisplay .= "<div class='delete'><a href='$basepath/?action=DeleteDoc&id=$doctor[doctor_id]'>Delete</a></div>\n";
+        $docDisplay .= "<div class='modify'><a href='$basepath/?action=modifyDoc&id=$doctor[doctor_id]&add_id=$doctor[address_id]'>Modify</a></div>\n";
+        $docDisplay .= "<div class='delete'><a href='$basepath/?action=DeleteDoc&id=$doctor[doctor_id]&add_id=$doctor[address_id]'>Delete</a></div>\n";
         $docDisplay .= "</article>\n";
     }
     
