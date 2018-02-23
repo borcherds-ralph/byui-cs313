@@ -14,12 +14,10 @@
     </section>
     <main>
         <h1>Specialties</h1>
-        
-        <label for="category">Select a Specialty: </label>
-        <input class="inputinvalid" id="category" name="category" autocomplete="off" list="specialties" required tabindex="1" title="Select the category." onChange="javascript:updateDocBySpecialty();" >
-        <?php echo $specialties; ?> 
         <section id="specialty">
-           
+            <label for="category">Select a Specialty: </label>
+            <input id="category" name="category" autocomplete="off" list="specialties" tabindex="1" title="Select the category." onChange="javascript:updateDocBySpecialty();" >
+            <?php echo $specialties; ?> 
         </section>
         <section id="docbyspecialty">
         </section>
