@@ -215,7 +215,6 @@ switch ($action) {
     break;
 
     default:
-        print_r($_POST);
         $docs = getAllrecords();
         $doctors = getDoctors($docs);
         include 'view/home.php';

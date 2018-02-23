@@ -81,7 +81,7 @@
                 </div>
                 
             </fieldset>
-            <input type="submit" name="create" value="Create">
+            <input type="submit" name="submit" value="Submit">
             <input type="hidden" name="action" value="DocAdd">
 
         </form>
