@@ -50,7 +50,7 @@
                     <label for="docaddress2">Address Line 2</label>
                 </div>
                 <div>
-                    <input id="docaddress3" name="docaddress3" type="text"tabindex="7"
+                    <input id="docaddress3" name="docaddress3" type="text" tabindex="7"
                     title="Address Line 3" <?php if (isset($doctor)) {  echo "value='" . $doctor['docaddress3'] . "'";} ?> >
                     <label for="docaddress3">Address Line 3</label>
                 </div>
