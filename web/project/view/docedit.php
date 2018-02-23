@@ -12,7 +12,7 @@
     <title>Document</title>
     <?php include 'common/head.php'; ?>
 </head>
-<body>
+<body> 
     
         <?php include 'common/header.php'; ?>
     

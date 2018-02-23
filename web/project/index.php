@@ -22,7 +22,7 @@ if (isset($_SESSION['loggedin'])) {
     $clientData = getClient($_SESSION['clientData']['email']);
     array_pop($clientData);
 } 
-
+ 
 
 switch ($action) {
 

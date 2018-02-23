@@ -25,7 +25,7 @@ function getDoctors($docs) {
         $docDisplay .= "<div>$doctor[doccity], $doctor[docstate] $doctor[doczip]</div>\n";
         $docDisplay .= "</article>\n";
     }
-
+ 
     return $docDisplay;
 }
 

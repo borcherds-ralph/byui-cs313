@@ -23,7 +23,8 @@
     if(isset($message)) { echo "<h2>$message</h2>"; }
 
     echo $docMgt;
-
+ 
+print_r($doctors);
 ?>
 
 </main>

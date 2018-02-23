@@ -3,7 +3,7 @@
 // Acme Registration Model
 
 function regClient($firstname, $lastname, $username, $email, $password){
-    
+     
     $db = get_db();
 
     $sql = 'INSERT INTO doclookup.users (firstname, lastname, username, email, password) 
