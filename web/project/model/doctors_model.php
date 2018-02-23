@@ -1,11 +1,34 @@
 <?php
 
-function addDoctor($docFName, $docLName){
+function getAllSpecialties() {
     $db = get_db();
-    $sql = 'INSERT INTO doclookup.doctors (firstname, lastname) VALUES (:firstname, :lastname)';
+    $sql = 'SELECT specialty_id, specialty_name FROM doclookup.specialties ORDER BY specialty_name';
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $specialties = $stmt->fetchAll();
+    $stmt->closeCursor();
+    return $specialties;
+}
+
+function getSpecialty($category){
+    $db = get_db();
+    $sql = 'SELECT specialty_id FROM doclookup.specialties WHERE specialty_name = :category';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':category', $category, PDO::PARAM_STR);
+    $stmt->execute();
+    $specialty = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+    return $specialty;
+}
+
+function addDoctor($docFName, $docLName, $docSex, $docTitle){
+    $db = get_db();
+    $sql = 'INSERT INTO doclookup.doctors (doctorfirstname, doctorlastname, sex, doctor_title) VALUES (:firstname, :lastname, :sex, :title)';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':firstname', $docFName, PDO::PARAM_STR);
     $stmt->bindValue(':lastname', $docLName, PDO::PARAM_STR);
+    $stmt->bindValue(':sex', $docSex, PDO::PARAM_STR);
+    $stmt->bindValue(':title', $docTitle, PDO::PARAM_STR);
     $stmt->execute();
     $lastId = $db->lastInsertId();
     $rowsChanged = $stmt->rowCount();
@@ -13,22 +36,24 @@ function addDoctor($docFName, $docLName){
     return array($rowsChanged, $lastId);
 }
 
-function addDocAddress($docId, $docAddress1, $docAddress2, $docCity, $docState, $docZip){
+function addDocAddress($docId, $docAddress1, $docAddress2, $docAddress3, $docCity, $docState, $docZip, $docPhone){
     $db = get_db();
-    $sql = 'INSERT INTO doclookup.addresses ( doctor_id, docaddress1, docaddress2, docaddress3, doccity, docstate, doczip) VALUES (:addr1, :addr2, :addr3, :city, :addst, :zip)';
+    $sql = 'INSERT INTO doclookup.addresses ( doctor_id, docaddress1, docaddress2, docaddress3, doccity, docstate, doczip, docphone) VALUES (:docid, :addr1, :addr2, :addr3, :city, :addst, :zip, :docphone)';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':docid', $docId, PDO::PARAM_INT);
-    $stmt->bindValue(':addr1', $docFName, PDO::PARAM_STR);
-    $stmt->bindValue(':addr2', $docLName, PDO::PARAM_STR);
-    $stmt->bindValue(':addr3', $docLName, PDO::PARAM_STR);
-    $stmt->bindValue(':city', $docLName, PDO::PARAM_STR);
-    $stmt->bindValue(':addst', $docLName, PDO::PARAM_STR);
-    $stmt->bindValue(':zip', $docLName, PDO::PARAM_STR);
+    $stmt->bindValue(':addr1', $docAddress1, PDO::PARAM_STR);
+    $stmt->bindValue(':addr2', $docAddress2, PDO::PARAM_STR);
+    $stmt->bindValue(':addr3', $docAddress3, PDO::PARAM_STR);
+    $stmt->bindValue(':city', $docCity, PDO::PARAM_STR);
+    $stmt->bindValue(':addst', $docState, PDO::PARAM_STR);
+    $stmt->bindValue(':zip', $docZip, PDO::PARAM_STR);
+    $stmt->bindValue(':docphone', $docPhone, PDO::PARAM_STR);
     $stmt->execute();
     $rowsChanged = $stmt->rowCount();
     $stmt->closeCursor();
     return $rowsChanged;
 }
+
 
 function addDocSpec($docid, $docSpecId){
     $db = get_db();

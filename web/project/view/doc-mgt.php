@@ -1,3 +1,8 @@
+<?php
+    if ($_SESSION['loggedin'] <> TRUE){
+        header('location:' . $basepath. '?action=login');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +18,7 @@
         <?php include_once 'common/header.php'; ?>
     </section>
     <main>
+    <input type="button" value="Add Doctor" id="addDoc" onClick="javascript:window.open('<?php echo $basepath ."/?action=addDoc"; ?>', '_self', false)">
 <?php 
     if(isset($message)) { echo "<h2>$message</h2>"; }
 

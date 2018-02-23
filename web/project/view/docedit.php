@@ -1,3 +1,8 @@
+<?php
+    if ($_SESSION['loggedin'] <> TRUE){
+        header('location:' . $basepath. '?action=login');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +17,7 @@
         <?php include 'common/header.php'; ?>
     
     <main>
-    <?php print_r( $doctor); ?>
+
         <form id="editDoc" action="<?php echo $basepath; ?>" method="post">
             <fieldset>
                 <div>
@@ -101,7 +106,7 @@
             <input type="hidden" name="action" value="ModDoc" />
             <input type="hidden" name="docid" value="<?php echo $doctor['doctor_id']; ?>" />
             <input type="hidden" name="addid" value="<?php echo $doctor['address_id']; ?>" />
-            <?php print_r($doctor); ?>
+           
         </form>
     </main>
 </body>

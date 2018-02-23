@@ -40,6 +40,17 @@ function makeSpecialties($specialties){
     return $catList;
 }
 
+function allSpecialties($specialties){
+    // build category list for drop down list.
+    // This must come after the navigation so that the $specialties variable has data
+    $catList = "<datalist id='specialties'>";
+    foreach ($specialties as $category) {
+        $catList .= "<option data-value='" . $category['specialty_id'] . "'>" . $category['specialty_name'] . "</option>";
+    }
+    $catList .= "</datalist>";
+    return $catList;
+}
+
 function makeCities($cities){
     $catList = "<datalist id='cities'>";
     $catList .= "<option selected value=''></option>";

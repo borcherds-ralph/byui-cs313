@@ -143,6 +143,8 @@ main h1 {
 .docmgt,
 .docmgt .doclist {
     width: 100vw;
+    display: flex;
+    order: 2;
 }
 
 .bold {
@@ -200,4 +202,105 @@ input:required {
 
 input:required:invalid {
     border-color: #C00000;
+}
+
+
+/* ******************************************
+*
+*   
+*       Field Entry formatting
+*
+*
+******************************************** */
+
+#editDoc {
+    width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset {
+    width: 40em;
+    margin: 10px 10px 30px 10px;
+    border: 0 none;
+}
+
+fieldset div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input,
+textarea,
+select {
+    order: 2;
+    flex-basis: 15em;
+    flex-grow: 0;
+    flex-shrink: 1;
+    margin: 3px;
+    align-items: flex-end;
+}
+
+label {
+    order: 1;
+    text-align: right;
+    padding-right: 0.5em;
+    white-space: nowrap;
+    cursor: pointer;
+    width: calc(25%);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    order: 1;
+    flex: none;
+    width: auto;
+    margin-left: 1em;
+}
+
+input[type="checkbox"]~label,
+input[type="radio"]~label {
+    width: auto;
+    text-align: left;
+    padding-left: 0.4em;
+}
+
+
+/* label state styles */
+
+input:focus~label,
+textarea:focus~label,
+select:focus~label {
+    color: #933;
+}
+
+input:checked~label {
+    font-weight: bold;
+}
+
+#addDoc {
+    width: calc(20%);
+    font-weight: 700;
+    order: 1;
+    display: flex;
+    flex-basis: 1em;
+    align-items: flex-start;
+    background-color: #55eeff;
+    min-height: 2.5em;
+}
+
+#addDoc[type='button'] {
+    margin: 20px 0;
+}
+
+input[type='submit'] {
+    background-color: #06147a;
+    color: #fff;
+    font-weight: 700;
+    font-kerning: 1.2;
+    max-height: 3em;
+    width: calc(25%);
+    align-self: center;
 }

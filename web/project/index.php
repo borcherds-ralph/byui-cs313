@@ -41,7 +41,7 @@ switch ($action) {
         include 'view/bycity.php';
     break;
 
-    case 'logout':
+    case 'Logout':
         session_destroy();
         setcookie('firstname', $_SESSION['clientData']['first_name'], time() - 3600, $basepath);
         header('location:' . $basepath);
@@ -142,12 +142,18 @@ switch ($action) {
     break;
 
     case 'doc-mgt':
+        if ($_SESSION['loggedin'] <> TRUE){
+            header('location:' . $basepath. '?action=login');
+        }
         $doctors = getDocRecords();
         $docMgt = createDocMgt($doctors);
         include 'view/doc-mgt.php';
     break;
 
     case 'modifyDoc':
+        if ($_SESSION['loggedin'] <> TRUE){
+            header('location:' . $basepath. '?action=login');
+        }
         $id = filter_input(INPUT_GET, 'id');
         $addId = filter_input(INPUT_GET, 'add_id');
         $doctor = getDoctor($id, $addId);
@@ -170,8 +176,27 @@ switch ($action) {
        include 'view/doc-mgt.php';
     break;
 
+    case 'addDoc':
+        if ($_SESSION['loggedin'] <> TRUE){
+            header('location:' . $basepath. '?action=login');
+        }
+        $specialties = getAllSpecialties();
+        $specialtiesDisplay = allSpecialties($specialties);
+        include 'view/docadd.php';
+    break;
+
     case 'DocAdd':
-        $return = addDoctor($_POST['docfirstname'], $_POST['doclastname'], $_POST['docEmail']);
+        if ($_SESSION['loggedin'] <> TRUE){
+            header('location:' . $basepath. '?action=login');
+        }
+        $specialty = getSpecialty($_POST['category']);
+        $return = addDoctor($_POST['docfirstname'], $_POST['doclastname'], $_POST['docsex'], $_POST['doctitle']);
+        $return2 = addDocAddress($return['1'], $_POST['docaddress1'], $_POST['docaddress2'], $_POST['docaddress3'], $_POST['doccity'], $_POST['docstate'], $_POST['doczip'], $_POST['docphone']);
+        $return3 = addDocSpec($return['1'], $specialty['specialty_id']);
+        $doctors = getDocRecords();
+        $docMgt = createDocMgt($doctors);
+        include 'view/doc-mgt.php';
+
     break;
 
     default:
