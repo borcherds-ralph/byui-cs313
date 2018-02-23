@@ -46,43 +46,45 @@
                 </div>
                 <div>
                     <input id="docaddress2" name="docaddress2" type="text" tabindex="6"
-                    title="Address Line 2" <?php if (isset($doctor)) {  echo "value='" . $doctor['docaddress2'] . "'";} ?> >
+                    title="Address Line 2" <?php if (isset($doctor)) {  echo "value='" . $doctor['docaddress2'] . "'";} ?> />
                     <label for="docaddress2">Address Line 2</label>
                 </div>
                 <div>
                     <input id="docaddress3" name="docaddress3" type="text" tabindex="7"
-                    title="Address Line 3" <?php if (isset($doctor)) {  echo "value='" . $doctor['docaddress3'] . "'";} ?> >
+                    title="Address Line 3" <?php if (isset($doctor)) {  echo "value='" . $doctor['docaddress3'] . "'";} ?> />
                     <label for="docaddress3">Address Line 3</label>
                 </div>
                 <div>
                     <input id="doccity" name="doccity" type="text" required tabindex="8"
-                    title="City" <?php if (isset($doctor)) {  echo "value='" . $doctor['doccity'] . "'";} ?> >
+                    title="City" <?php if (isset($doctor)) {  echo "value='" . $doctor['doccity'] . "'";} ?> />
                     <label for="doccity">City</label>
                 </div>
                 <div>
                     <input id="docstate" name="docstate" type="text" required tabindex="9"
-                    title="State" <?php if (isset($doctor)) {  echo "value='" . $doctor['docstate'] . "'";} ?> >
+                    title="State" <?php if (isset($doctor)) {  echo "value='" . $doctor['docstate'] . "'";} ?> />
                     <label for="docstate">State</label>
                 </div>
                 <div>
                     <input id="doczip" name="doczip" type="text" required tabindex="10"
-                    title="Zip Code" <?php if (isset($doctor)) {  echo "value='" . $doctor['doczip'] . "'";} ?> >
+                    title="Zip Code" <?php if (isset($doctor)) {  echo "value='" . $doctor['doczip'] . "'";} ?> />
                     <label for="doczip">Zip Code</label>
                 </div>
                 <div>
                     <input id="docphone" name="docphone" type="text" required tabindex="10"
-                    title="Phone Number" <?php if (isset($doctor)) {  echo "value='" . $doctor['docphone'] . "'";} ?> >
+                    title="Phone Number" <?php if (isset($doctor)) {  echo "value='" . $doctor['docphone'] . "'";} ?> />
                     <label for="docphone">Phone Number</label>
                 </div>
                 <div>
-                    <input id="category" name="category" autocomplete="off" list="specialties" required tabindex="11" title="Select the category." onChange="javascript:updateDocBySpecialty();" >
+                    <input id="category" name="category" autocomplete="off" list="specialties" required tabindex="11" title="Select the category." onChange="javascript:updateDocBySpecialty();" />
                     <?php echo $specialtiesDisplay; ?> 
                     <label for="category">Select a Specialty: </label>
                 </div>
-                
+                  
             </fieldset>
-            <input type="submit" name="submit" value="Submit">
-            <input type="hidden" name="action" value="DocAdd">
+            <input type="submit" name="submit" value="Submit" />
+            <input type="hidden" name="action" value="DocAdd" />
+
+    
 
         </form>
     </main>
