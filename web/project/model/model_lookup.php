@@ -2,7 +2,7 @@
 
 function getAllrecords(){
     $db = get_db();
-    $sql = "SELECT dc.doctorFirstname, dc.doctorLastname, ad.docaddress1, ad.docaddress2, ad.docaddress3, ad.doccity, ad.docstate, ad.doczip FROM doclookup.doctors AS dc 
+    $sql = "SELECT dc.doctorfirstname, dc.doctorlastname, ad.docaddress1, ad.docaddress2, ad.docaddress3, ad.doccity, ad.docstate, ad.doczip FROM doclookup.doctors AS dc 
     RIGHT JOIN doclookup.addresses AS ad ON ad.doctor_id = dc.doctor_id
     RIGHT JOIN doclookup.doc_specialties AS ds ON dc.doctor_id = ds.doctor_id 
     JOIN doclookup.specialties AS sp ON sp.specialty_id = ds.id ORDER BY dc.doctorLastname";
