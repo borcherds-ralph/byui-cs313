@@ -15,7 +15,7 @@ $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL){
  $action = filter_input(INPUT_GET, 'action');
 }
-echo $action;
+
 
 // Check if the firstname cookie exists, get its value
 if (isset($_SESSION['loggedin'])) {
@@ -30,12 +30,14 @@ switch ($action) {
     break;
 
     case 'specialty':
+    echo "action".$action;
         $spec = getSpecialties();
         $specialties = makeSpecialties($spec);
         include 'view/specialty.php';
     break;
 
     case 'city':
+    echo "action".$action;
         $cities = getCities();
         $cityList = makeCities($cities);
         include 'view/bycity.php';
@@ -48,10 +50,12 @@ switch ($action) {
     break;
 
     case 'registration':
+    echo "action".$action;
         include 'view/registration.php';
     break;
 
     case 'Register':
+    echo "action".$action;
         // Filter and store the data
         $first_name = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_STRING);
         $last_name = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_STRING);
@@ -98,10 +102,12 @@ switch ($action) {
     break;
 
     case 'login':
+    echo "action".$action;
         include 'view/login.php'; 
     break;
 
     case 'Login':
+    echo "action".$action;
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
         $email = checkEmail($email);
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
@@ -142,6 +148,7 @@ switch ($action) {
     break;
 
     case 'doc-mgt':
+    echo "action".$action;
         if ($_SESSION['loggedin'] <> TRUE){
             header('location:' . $basepath. '?action=login');
         }
@@ -151,6 +158,7 @@ switch ($action) {
     break;
 
     case 'modifyDoc':
+        echo "action".$action;
         if ($_SESSION['loggedin'] <> TRUE){
             header('location:' . $basepath. '?action=login');
         }
@@ -162,6 +170,7 @@ switch ($action) {
     break;
 
     case 'ModDoc':
+    echo "action".$action;
         $error1 = modDoctor($_POST['docid'],  $_POST['docfirstname'], $_POST['doclastname'], "");
         if($error1 == '0') {
             $message = "The Doctor Name was not updated";
@@ -177,6 +186,7 @@ switch ($action) {
     break;
 
     case 'addDoc':
+    echo "action".$action;
         if ($_SESSION['loggedin'] <> TRUE){
             header('location:' . $basepath. '?action=login');
         }
@@ -186,6 +196,7 @@ switch ($action) {
     break;
 
     case 'DocAdd':
+    echo "action".$action;
         if ($_SESSION['loggedin'] <> TRUE){
             header('location:' . $basepath. '?action=login');
         }
@@ -204,6 +215,7 @@ switch ($action) {
     break;
 
     default:
+    echo "action".$action;
         $docs = getAllrecords();
         $doctors = getDoctors($docs);
         include 'view/home.php';
