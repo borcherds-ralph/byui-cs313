@@ -12,7 +12,6 @@ function baseurl() {
 function getDoctors($docs) {
     
     $docDisplay = '';
-// $docDisplay = print_r($docs);
     foreach ($docs as $key => $doctor) {
         if($key & 1) {
             $rowoddeven = 'odd';
@@ -64,7 +63,6 @@ function makeCities($cities){
 function getDoctorsByCity($docs) {
     
     $docDisplay = '<section>';
-// $docDisplay = print_r($docs);
     foreach ($docs as $key => $doctor) {
         if($key & 1) {
             $rowoddeven = 'odd';

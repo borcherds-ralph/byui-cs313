@@ -205,9 +205,6 @@ switch ($action) {
         $return = addDoctor($_POST['docfirstname'], $_POST['doclastname'], $_POST['docsex'], $_POST['doctitle']);
         $return2 = addDocAddress($return['1'], $_POST['docaddress1'], $_POST['docaddress2'], $_POST['docaddress3'], $_POST['doccity'], $_POST['docstate'], $_POST['doczip'], $_POST['docphone']);
         $return3 = addDocSpec($return['1'], $specialty['specialty_id']);
-        echo $return."<br>";
-        echo $return2."<br>";
-        echo $return3."<br>";
         $doctors = getDocRecords();
         $docMgt = createDocMgt($doctors);
         include 'view/doc-mgt.php';
