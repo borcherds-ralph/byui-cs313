@@ -189,6 +189,7 @@ switch ($action) {
         if ($_SESSION['loggedin'] <> TRUE){
             header('location:' . $basepath. '?action=login');
         }
+        print_r($_POST);
         $specialty = getSpecialty($_POST['category']);
         $return = addDoctor($_POST['docfirstname'], $_POST['doclastname'], $_POST['docsex'], $_POST['doctitle']);
         $return2 = addDocAddress($return['1'], $_POST['docaddress1'], $_POST['docaddress2'], $_POST['docaddress3'], $_POST['doccity'], $_POST['docstate'], $_POST['doczip'], $_POST['docphone']);
