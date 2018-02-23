@@ -15,7 +15,7 @@ $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL){
  $action = filter_input(INPUT_GET, 'action');
 }
-
+echo $action;
 
 // Check if the firstname cookie exists, get its value
 if (isset($_SESSION['loggedin'])) {
@@ -189,11 +189,14 @@ switch ($action) {
         if ($_SESSION['loggedin'] <> TRUE){
             header('location:' . $basepath. '?action=login');
         }
-        print_r($_POST);
+       
         $specialty = getSpecialty($_POST['category']);
         $return = addDoctor($_POST['docfirstname'], $_POST['doclastname'], $_POST['docsex'], $_POST['doctitle']);
         $return2 = addDocAddress($return['1'], $_POST['docaddress1'], $_POST['docaddress2'], $_POST['docaddress3'], $_POST['doccity'], $_POST['docstate'], $_POST['doczip'], $_POST['docphone']);
         $return3 = addDocSpec($return['1'], $specialty['specialty_id']);
+        echo $return."<br>";
+        echo $return2."<br>";
+        echo $return3."<br>";
         $doctors = getDocRecords();
         $docMgt = createDocMgt($doctors);
         include 'view/doc-mgt.php';
