@@ -17,7 +17,7 @@
         <?php include 'common/header.php'; ?>
     
     <main>
-        <form action="<?php echo $basepath; ?>/?action=DocAdd" method="post" id="addDoc" >
+        <form action="<?php echo $basepath; ?>/?action=DocAdd" method="post" id="DocAdd" >
             <fieldset>
                 <div>
                     <input id="docfirstname" name="docfirstname" type="text" required tabindex="1"
