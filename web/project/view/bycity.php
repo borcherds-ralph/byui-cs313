@@ -19,7 +19,7 @@
             <input id="city1" name="city1" autocomplete="off" list="cities" tabindex="1" title="Select the city." onChange="javascript:updateDocByCity();">
             <?php echo $cityList; ?> 
         </section>
-        <section id="docbycity"></section>
+        <!-- <section id="docbycity"></section> -->
     </main>
     <footer>
         <?php include 'common/footer.php'; ?>

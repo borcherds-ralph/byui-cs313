@@ -45,7 +45,7 @@ function checkExistingEmail($email) {
 // Get client data based on an email address
 function getClient($email){
     $db = get_db();
-    $sql = 'SELECT user_id, firstname, lastname, username, email, password FROM doclookup.users WHERE email = :email';
+    $sql = "SELECT user_id, firstname, lastname, username, usrlevel, email, userpassword FROM doclookup.users WHERE email = :email";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':email', $email, PDO::PARAM_STR);
     $stmt->execute();

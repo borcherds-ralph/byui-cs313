@@ -126,7 +126,7 @@ switch ($action) {
 
         // Compare the password just submitted against
         // the hashed password for the matching client
-        $hashCheck = password_verify($password, $clientData['password']);
+        $hashCheck = password_verify($password, $clientData['userpassword']);
 
         // If the hashes don't match create an error
         // and return to the login view
@@ -209,6 +209,10 @@ switch ($action) {
         $docMgt = createDocMgt($doctors);
         include 'view/doc-mgt.php';
 
+    break;
+
+    case 'user-mgt' :
+        include 'view/mgt-account.php';
     break;
 
     default:

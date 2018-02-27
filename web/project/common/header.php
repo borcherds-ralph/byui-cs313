@@ -6,14 +6,14 @@
         <div class="right">
             <div class="account">
                 <?php if (isset($_SESSION['loggedin'])) {
-                    echo "<span id='welcome'><a href='$basepath/accounts'>Welcome " . $clientData['firstname'] . "</a></span>";
+                    echo "<span id='welcome'><a href='$basepath?action=user-mgt'>Welcome " . $clientData['firstname'] . "</a></span>";
                     
                 } ?>
                 <?php
                     if (isset($_SESSION['loggedin'])) {
                         echo "<div id='loggedin'>";
                         echo "<div id='logout'><a href='$basepath?action=Logout'>Logout</a></div>";
-                        echo "<div id='update'><a href='$basepath?action=doc-mgt'>Manage Doctors</a></div>";
+                        echo "<div id='update'><a href='$basepath?action=user-mgt'>Manage Account</a></div>";
                         echo "</div>";
                     } else {
                         echo "<a href='$basepath?action=login' class='link'>
